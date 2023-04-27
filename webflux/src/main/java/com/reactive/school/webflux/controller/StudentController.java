@@ -36,4 +36,15 @@ public class StudentController {
   public Flux<Student> getAllStudents(){
     return studentService.getAllStudents();
   }
+
+  // @GetMapping("/byBranch/{branchName}")
+  // public Flux<Student> getByStudentBranch(@PathVariable("branchName")String branchName){
+  //   // return studentService.getByBranchName(branchName);
+  //   return studentService.getAllStudents();
+  // }
+
+  @GetMapping("/byBranch/{branchName}")
+  public Flux<Student> getByBranchName(@PathVariable("branchName")String branchName){
+    return studentService.getByBranchName(branchName);
+  }
 }

@@ -1,12 +1,14 @@
 package com.reactive.school.webflux.service;
 
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.reactive.school.webflux.dto.StudentDto;
 import com.reactive.school.webflux.entity.Student;
 import com.reactive.school.webflux.repo.StudentRepo;
-import com.reactive.school.webflux.utils.AppUtils;
+
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -45,4 +47,13 @@ public class StudentService {
       return s;
     }).flatMap(s -> studentRepo.save(s));
   }
+
+  public Flux<Student> getByBranchName(String branchName){
+    Flux<Student> students = studentRepo.findAll();
+    return students
+    .filter(student -> student.getStudentBranch().equals(branchName));
+    // return students;
+  }
+
+
 }

@@ -1,16 +1,15 @@
-package com.casestudy.school;
+package com.casestudy.apigateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-
-
+// @EnableDiscoveryClient
 @SpringBootApplication
-@EnableDiscoveryClient
-public class SchoolApplication {
+public class ApigatewayApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SchoolApplication.class, args);
+		SpringApplication.run(ApigatewayApplication.class, args);
 	}
+
 }

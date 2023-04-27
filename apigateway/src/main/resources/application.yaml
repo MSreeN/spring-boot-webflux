@@ -1,0 +1,17 @@
+server:
+  port : 8089
+
+spring: 
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: student-service
+          uri: http://localhost:8086/
+          predicates: 
+            - Path = /student/**
+        - id: student-service-flux
+          uri: http://localhost:8087/
+          predicates: 
+            - Path = /student-webflux/**
